@@ -36,9 +36,9 @@
                 <div class="header-buttons">
                     <a href="#" class="btn btn-primary">Get A Quote</a>
                     <a href="#" class="btn btn-outline">Login</a>
-                    <a href="tel:07773443646" class="phone-link">
+                    <a href="tel:03333443646" class="phone-link">
                         <i class="fas fa-phone"></i>
-                        0777 344 3646
+                        0333 344 3646
                     </a>
                 </div>
                 
@@ -87,9 +87,9 @@
                 <a href="#" class="btn btn-secondary">
                     Our Services
                 </a>
-                <a href="tel:07773443646" class="btn btn-outline-white">
+                <a href="tel:03333443646" class="btn btn-outline-white">
                     <i class="fas fa-phone"></i>
-                    Call Us: 0777 344 3646
+                    Call Us: 0333 344 3646
                 </a>
             </div>
             
@@ -412,9 +412,9 @@
             
             <div class="footer-contact">
                 <h4>Get In Touch</h4>
-                <a href="tel:07773443646" class="contact-link">
+                <a href="tel:03333443646" class="contact-link">
                     <i class="fas fa-phone"></i>
-                    0777 344 3646
+                    0333 344 3646
                 </a>
                 <a href="mailto:info@isocert.com" class="contact-link">
                     <i class="fas fa-envelope"></i>
@@ -439,4 +439,50 @@
         </div>
     </div>
 </footer>
-
+<!-- NEW WAY (right before closing body tag) -->
+<script>
+    // Simple test - does this run?
+    console.log('Script is loading!');
+    
+    // Mobile Menu - Simple Working Version
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOM loaded - starting mobile menu');
+        
+        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileNav = document.querySelector('.mobile-nav');
+        const body = document.body;
+        
+        console.log('Toggle button found:', !!mobileToggle);
+        console.log('Mobile nav found:', !!mobileNav);
+        
+        if (mobileToggle && mobileNav) {
+            console.log('Setting up mobile menu...');
+            
+            mobileToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Toggle clicked!');
+                
+                // Toggle the menu
+                mobileNav.classList.toggle('active');
+                body.classList.toggle('menu-open');
+                
+                // Change icon
+                const icon = this.querySelector('i');
+                if (icon) {
+                    if (mobileNav.classList.contains('active')) {
+                        icon.className = 'fas fa-times';
+                    } else {
+                        icon.className = 'fas fa-bars';
+                    }
+                }
+            });
+            
+            console.log('Mobile menu setup complete!');
+        } else {
+            console.error('Mobile menu elements not found!');
+        }
+    });
+</script>
+</body>
+</html>
